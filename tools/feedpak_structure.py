@@ -25,7 +25,9 @@ Every section start is also a part start unless `phrase: false`.
 
 If a note sits a few milliseconds before a computed grid time, the boundary is
 pulled back to that note so it is not cut off into the previous part.
-Exact "t..." times are never moved.
+Exact "t..." times are never moved. Set `snap_before: 0.01` (seconds) in the plan
+to narrow that window for very fast music, where a note just before the barline
+is usually the end of the previous phrase rather than a pickup.
 
 Usage:
     python3 tools/feedpak_structure.py IN.feedpak PLAN.yaml OUT.feedpak
@@ -95,8 +97,8 @@ def onsets(arrs: dict[str, dict]) -> list[float]:
     return sorted(out)
 
 
-def snap(t: float, ons: list[float]) -> float:
-    lo = bisect.bisect_left(ons, t - SNAP_BEFORE)
+def snap(t: float, ons: list[float], before: float = SNAP_BEFORE) -> float:
+    lo = bisect.bisect_left(ons, t - before)
     cands = [o for o in ons[lo:] if o <= t + SNAP_AFTER]
     return round(min([t] + cands), 3)
 
@@ -180,10 +182,12 @@ def main() -> int:
     grid = Grid(tl["beats"])
     ons = onsets(arrs)
 
+    snap_before = float(plan.get("snap_before", SNAP_BEFORE))
+
     def place(pos) -> float:
         # Exact "t..." times are used as written; grid positions get snapped.
         t = grid.time_of(pos)
-        return round(t, 3) if str(pos).strip().startswith("t") else snap(t, ons)
+        return round(t, 3) if str(pos).strip().startswith("t") else snap(t, ons, snap_before)
 
     sections, phrase_starts, counts = [], [], {}
     for s in plan["sections"]:

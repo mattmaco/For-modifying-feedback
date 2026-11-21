@@ -19,4 +19,8 @@ Songs:
 - **Dern Kala**: 11 descriptively named sections (Main Riff, 7th Fret Riff, Double Stop Sixths, ...)
   and 39 parts per chart (lead and bass). See the comments in `songs/dern-kala/structure.yaml`.
 
-`.feedpak` files are git-ignored because they contain the song audio.
+- **La Campanella (Liszt, arranged for guitar)**: generated from a piano MIDI by
+  `songs/la-campanella/arrange.py` (reduction, fingering with tapping, FluidSynth nylon-guitar
+  audio), then sectioned with `songs/la-campanella/structure.yaml`.
+
+`.feedpak` and `.mid` files are git-ignored (song audio / third-party sequencing).

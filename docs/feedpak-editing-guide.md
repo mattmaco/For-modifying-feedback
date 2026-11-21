@@ -124,6 +124,7 @@ The structure script:
 
 - converts bar/beat positions with the song's own beat grid
 - pulls a boundary back to a note that sits up to 60 ms early, so a pickup is never cut off
+  (set `snap_before: 0.01` in the plan for very fast music, where that note is usually a trill)
 - rewrites only `sections` (in `song_timeline.json` and `lead.json`) and `phrases`
 - keeps every other zip entry byte-identical and in the same order
 - validates against the JSON schemas in `reference/feedpak-spec/schemas/`

@@ -1,0 +1,91 @@
+# La Campanella (Liszt, arr. for solo guitar) - section and part plan
+# Build the unsectioned pack with songs/la-campanella/arrange.py, then apply this with
+#   python3 tools/feedpak_structure.py <nostructure.feedpak> songs/la-campanella/structure.yaml <out.feedpak>
+#
+# 6/8, eighth-note beats (6 per bar). Measures 1-2 are a silent count-in, so
+# measure N here = bar N-2 of Liszt's score. Parts are mostly 2 bars.
+# A minor (Liszt's G# minor up a semitone): the bell is E6 = high E, 24th fret, usually tapped.
+
+phrase_arrangements: [lead]
+snap_before: 0.01        # fast music: don't pull boundaries back onto trill notes
+
+sections:
+  - name: bell_intro              # the bell alone, in octaves
+    at: "3"
+    parts: ["5"]
+
+  - name: bell_theme              # melody below, tapped bell above, every other 16th
+    at: "6+5.5"                   # pickup
+    parts: ["9", "10+5.5", "13"]
+
+  - name: bell_theme_with_bass    # same theme, now with bass notes and leaps
+    at: "14+5.75"                 # 16th pickup
+    parts: ["17", "19", "21"]
+
+  - name: major_key_episode       # lighter tune in the relative major with chromatic turns
+    at: "23"
+    parts: ["25", "27", "29"]
+
+  - name: octave_leaps            # melody jumping between octaves
+    at: "31"
+    parts: ["33", "35", "37"]
+
+  - name: climb_to_the_bell       # chromatic rise back up to the bell
+    at: "39"
+    parts: ["41"]
+
+  - name: repeated_note_theme     # theme over a hammering repeated bell
+    at: "43"
+    parts: ["45", "47", "49", "51"]
+
+  - name: quiet_chords            # slow, low chordal interlude
+    at: "53"
+    parts: ["55", "57", "59"]
+
+  - name: trill_episode           # major-key tune again, now covered in trills
+    at: "62"
+    parts: ["64", "66", "68", "70", "72"]
+
+  - name: cadenza                 # free, held chords and a flourish
+    at: "75"
+    parts: ["77"]
+
+  - name: chromatic_runs          # long chromatic scales down and up, ending in a trill
+    at: "79"
+    parts: ["81", "83", "85", "87"]
+
+  - name: trilled_theme           # theme under a continuous bell trill
+    at: "89"
+    parts: ["91", "93", "95"]
+
+  - name: octave_theme            # theme in octaves, ends with a falling arpeggio
+    at: "97"
+    parts: ["99", "101", "103", "105"]
+
+  - name: major_key_fanfare       # loud climax in the major key
+    at: "106"
+    parts: ["108", "110", "112"]
+
+  - name: rising_bass_octaves     # bass climbs in octaves under falling scales
+    at: "114"
+    parts: ["116", "118", "120"]
+
+  - name: chromatic_cascade       # descending chromatic sweep across the neck
+    at: "121"
+    parts: ["123"]
+
+  - name: leaps_to_the_bell       # wide octave leaps that land on the bell
+    at: "125"
+    parts: ["127", "129"]
+
+  - name: grand_finale_theme      # the theme one last time, full chords
+    at: "131"
+    parts: ["133", "135", "137", "139"]
+
+  - name: coda                    # final chords and bell strokes
+    at: "140"
+    parts: ["142", "144", "146", "148"]
+
+  - name: noguitar
+    at: "t225.271"
+    phrase: false

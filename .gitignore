@@ -2,3 +2,4 @@
 *.feedpak
 out/
 __pycache__/
+*.mid
