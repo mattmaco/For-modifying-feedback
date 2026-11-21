@@ -1,0 +1,58 @@
+# Dern Kala (Khruangbin) - section and part plan
+# Apply with:
+#   python3 tools/feedpak_structure.py <Dern Kala.feedpak> songs/dern-kala/structure.yaml <out.feedpak>
+#
+# Positions are measure numbers from the song's beat grid ("4+3" = measure 4, beat 4).
+# Sections that open with a pickup start on the pickup note, like Two Fish and an
+# Elephant does, so looping a section or its first part includes the lead-in.
+# Each riff section is 8 bars = four 2-bar parts (one riff cycle each).
+
+phrase_arrangements: [lead, bass]
+
+sections:
+  - name: intro            # Bm / B5 / Em stabs
+    at: "3"
+
+  - name: riff_a           # main riff, open position (D/A strings)
+    at: "4+3"              # starts on the A-B-A pickup in bar 4
+    parts: ["7", "9", "11"]
+
+  - name: riff_b           # 2-bar figure at the 7th fret, played 4x
+    at: "12+3.5"           # pickup E (B string, 7th fret)
+    parts: ["15", "17", "19"]
+
+  - name: riff_a
+    at: "20+3"             # pickup D-E hammer, A
+    parts: ["23", "25", "27"]
+
+  - name: riff_c           # sixths double-stops over the G-F#-E-A bass line
+    at: "28+3.5"           # pickup E
+    parts: ["31", "33", "35"]
+
+  - name: riff_a_chords    # bass plays riff A, guitar plays chord rakes instead
+    at: "37"
+    parts: ["39", "41", "43"]
+
+  - name: riff_b
+    at: "45"
+    parts: ["47", "49", "51"]   # part 4 has the descending fill into the breakdown
+
+  - name: breakdown        # Bm7 stabs + G-string trill
+    at: "53"
+    parts: ["55", "57", "59"]
+
+  - name: riff_c_melody    # same bass as riff C, guitar plays a single-note melody
+    at: "60+3"             # pickup F#-E
+    parts: ["63", "65", "67"]
+
+  - name: riff_a           # riff A one octave up (G/B strings)
+    at: "68+3"             # pickup B-A on the B string
+    parts: ["71", "73", "75"]   # part 4 ends with the slide up + tremolo
+
+  - name: outro            # chromatic walk up, C#7 -> D7
+    at: "77"
+    parts: ["79"]
+
+  - name: noguitar
+    at: "t220.491"
+    phrase: false

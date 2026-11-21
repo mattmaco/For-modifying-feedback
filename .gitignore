@@ -1,0 +1,4 @@
+# Song packs contain copyrighted audio; keep them out of git.
+*.feedpak
+out/
+__pycache__/
