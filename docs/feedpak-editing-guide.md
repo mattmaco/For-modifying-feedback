@@ -58,7 +58,10 @@ copy of every note, chord, anchor and handshape in its time range.
 - The practice bar lists sections. Labels come from the name: `_` becomes a
   space, trailing digits are dropped, and `intro, verse, chorus, bridge, solo,
   riff, outro` get standard capitals. Anything else is title-cased
-  (`riff_a_chords` shows as **Riff A Chords**). The app numbers repeats itself.
+  (`7th_fret_riff` shows as **7th Fret Riff 1**). The app numbers repeats itself,
+  so don't put numbers at the end of a name.
+- Only the plain names `intro, verse, chorus, bridge, solo, riff, outro` get a
+  coloured chip in the practice bar. Descriptive names show in the default colour.
 - **Back-to-back sections with the same name are merged** into one group
   (`solo`, `solo` = one "Solo" entry with the parts of both).
 - When you pick a section, its **parts** are the phrases whose `start_time` falls
@@ -92,9 +95,10 @@ Taken from *Two Fish and an Elephant* (`songs/two-fish-and-an-elephant/structure
    so a loop always includes the lead-in.
 2. **One part = one riff cycle.** That is usually 2 bars, or 1 bar for short
    answers or turnarounds. An 8-bar section usually splits into 4 parts.
-3. **Name sections by what the guitar plays.** If the bass repeats riff A but
-   the guitar does something else, give it its own name (`riff_a_chords`) so
-   "Riff A" always means the same thing to learn.
+3. **Name sections by what the guitar plays**, in plain words: `main_riff`,
+   `raked_chords`, `sliding_melody`. Reuse a name only when the guitar part is
+   really the same, so "Main Riff" always means the same thing to learn. If the
+   bass repeats a riff but the guitar does something else, it gets a new name.
 4. **Keep `noguitar` at the end** as a marker only, with no part starting there.
 5. Fills and turnarounds stay inside the part they end, so the part loops
    musically.

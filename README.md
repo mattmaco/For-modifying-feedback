@@ -16,7 +16,7 @@ Practice loops, so a song can be learned riff by riff.
 Songs:
 
 - **Two Fish and an Elephant**: the reference layout, extracted from the user's `home_fix_v5` pack.
-- **Dern Kala**: new sections and 39 parts per chart (lead and bass). See the comments in
-  `songs/dern-kala/structure.yaml`.
+- **Dern Kala**: 11 descriptively named sections (Main Riff, 7th Fret Riff, Double Stop Sixths, ...)
+  and 39 parts per chart (lead and bass). See the comments in `songs/dern-kala/structure.yaml`.
 
 `.feedpak` files are git-ignored because they contain the song audio.
